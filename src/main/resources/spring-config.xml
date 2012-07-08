@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="cust" class="com.aj.spring.Customer">
+		<property name="creditCard" ref="creditCard" />
+		<property name="name" value="Reeti" />
+	</bean>
+
+	<bean id="cust2" class="com.aj.spring.Customer" p:creditCard-ref="creditCard2" p:name="Laddoo" />
+	
+	<bean id="creditCard" class="com.aj.spring.Visa" />
+	<bean id="creditCard2" class="com.aj.spring.MasterCard" />
+
+</beans>
