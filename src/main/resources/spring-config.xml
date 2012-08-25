@@ -1,16 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
-	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.0.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd">
 
-	<bean id="cust" class="com.aj.spring.Customer">
-		<property name="creditCard" ref="creditCard" />
-		<property name="name" value="Reeti" />
+	<context:component-scan base-package="com.aj.spring" />
+
+	<bean id="propertyTracker"
+		class="com.aj.spring.aspects.PropertyTracker">
 	</bean>
-
-	<bean id="cust2" class="com.aj.spring.Customer" p:creditCard-ref="creditCard2" p:name="Laddoo" />
 	
-	<bean id="creditCard" class="com.aj.spring.Visa" />
-	<bean id="creditCard2" class="com.aj.spring.MasterCard" />
-
+	<aop:aspectj-autoproxy/>
 </beans>
